@@ -1,0 +1,58 @@
+---
+title: "Test post"
+layout: post
+date: 2017-11-25 00:00
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- test
+- post
+blog: true
+star: true
+author: rna88
+description: A simple test to confirm posts can be made.
+---
+
+## Test
+This post is a simple test to confirm that posts can be made.
+Here there are two seperate lines.
+Now we have three.
+
+	Now here is a line indented with one tab.
+Here it is with no indent.
+
+Now here is a list:
+* First
+* Second
+* Third
+
+#Here comes a horizontal line.
+---
+Done with the line.
+
+Here is a link to this page's [github repository](https://github.com/rna88/rna88.github.io/tree/develop/_posts).
+
+a sample image:
+![Markdown Image][http://kune.fr/wp-content/uploads/2013/10/ghost-blog.jpg]
+
+
+bigger imagea:
+
+![Markdown Image][http://kune.fr/wp-content/uploads/2013/10/ghost-blog.jpg]{: class="bigger-image" }
+
+##Code sample
+Here is a line of c++
+{% highlight cpp %}
+#include <iostream<
+
+using namespace std;
+
+int main(){
+	std::cout << "Hello World!" << std::endl;
+	return 0;
+}
+{% endhighlight %}
+
+
+
+
