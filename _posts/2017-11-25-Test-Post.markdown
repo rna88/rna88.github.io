@@ -7,6 +7,7 @@ headerImage: false
 tag:
 - test
 - post
+- refactor
 blog: true
 star: true
 author: rna88
@@ -26,24 +27,26 @@ Now here is a list:
 * Second
 * Third
 
-#Here comes a horizontal line.
+###Here comes a horizontal line.
 ---
 Done with the line.
 
 Here is a link to this page's [github repository](https://github.com/rna88/rna88.github.io/tree/develop/_posts).
 
 a sample image:
-![Markdown Image][http://kune.fr/wp-content/uploads/2013/10/ghost-blog.jpg]
+![Markdown Image][/assets/images/ck.jpg]
 
+another sample image:
+![Markdown Image][1]
 
-bigger imagea:
+bigger image:
 
-![Markdown Image][http://kune.fr/wp-content/uploads/2013/10/ghost-blog.jpg]{: class="bigger-image" }
+![Markdown Image][/assets/images/markdown.jpg]{: class="bigger-image" }
 
-##Code sample
+#Code sample
 Here is a line of c++
 {% highlight cpp %}
-#include <iostream<
+#include <iostream>
 
 using namespace std;
 
@@ -53,6 +56,6 @@ int main(){
 }
 {% endhighlight %}
 
+[1]: /assets/images/profile.jpg
 
-
-
+#####The end
