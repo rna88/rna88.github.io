@@ -35,13 +35,14 @@ Here is a link to this page's [github repository](https://github.com/rna88/rna88
 
 a sample image:
 ![Markdown Image][/assets/images/ck.jpg]
+![Markdown Image][2]
 
 another sample image:
 ![Markdown Image][1]
 
 bigger image:
 
-![Markdown Image][/assets/images/markdown.jpg]{: class="bigger-image" }
+![Markdown Image][2]{: class="bigger-image" }
 
 #Code sample
 Here is a line of c++
@@ -57,5 +58,5 @@ int main(){
 {% endhighlight %}
 
 [1]: /assets/images/profile.jpg
-
+[2]: /assets/images/ck.jpg
 #####The end
