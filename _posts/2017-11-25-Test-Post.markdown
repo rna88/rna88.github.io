@@ -27,7 +27,7 @@ Now here is a list:
 * Second
 * Third
 
-###Here comes a horizontal line.
+### Here comes a horizontal line.
 ---
 Done with the line.
 
@@ -44,7 +44,7 @@ bigger image:
 
 ![Markdown Image][2]{: class="bigger-image" }
 
-#Code sample
+# Code sample
 Here is a line of c++
 {% highlight cpp %}
 #include <iostream>
@@ -59,4 +59,4 @@ int main(){
 
 [1]: /assets/images/profile.jpg
 [2]: /assets/images/ck.jpg
-#####The end
+#### The end
