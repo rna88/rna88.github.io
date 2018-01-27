@@ -1,5 +1,5 @@
 ---
-title"Font resizing with urxvt+tmux"
+title: "Font resizing with urxvt+tmux"
 layout: post
 date: 2018-01-04 00:00
 image: /assets/images/markdown.jpg
