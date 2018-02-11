@@ -58,13 +58,13 @@ The first part of the script at line 2 just executes the escape sequence to resi
 2: 1 windows (created Sun Jan  3 16:47:46 2018) [202x31]
 {% endhighlight %}
 
-The first column of ouput lists the tmux session ID, and the last column whether the tmux session is currently attached. The script uses "awk" to check whether the last column is empty, and if so passes the first column to "sed", where the semicolon at the end of the session ID is removed. Passing the ID to the attach-session command completes the script.
+The first column of ouput lists the tmux session ID, and the last column whether the tmux session is currently attached. The script uses "awk" to check whether the last column is empty, and if so passes the first column to "sed", where the colon at the end of the session ID is removed. Passing the ID to the attach-session command completes the script.
 
 To use the script we just make an alias to it within our shell and invoke it with the desired font size as an argument after detaching from tmux.
 
-## Minor Improvements
+## Final Improvements
 
-While the script is pretty small and works fine as is, it doesn't hurt to optimize it if we can. The main inefficiency with the previous implementation lies with our usage of "sed", as it introduces an needless pipe operation. Awk itself has the ability to handle regular expression based search-and-replace operations through the "sub" function. Making use of this function, removing the BEGIN and END sections, and removing the explicit "sessions" variable we get the following:
+While the script is pretty small and works fine as is, it doesn't hurt to optimize it if we can. The main inefficiency with the previous implementation lies with our usage of "sed", as it introduces a needless pipe operation. Awk itself has the ability to handle regular expression based search-and-replace operations through the "sub" function. Making use of this function, removing the BEGIN and END sections, and removing the explicit "sessions" variable we get the following:
 
 
 {% highlight bash %}
@@ -84,7 +84,7 @@ While the script is pretty small and works fine as is, it doesn't hurt to optimi
  14 ' `   
 {% endhighlight %}
 
-If we wanted to, we could further condense things into one line like so:
+If we wanted to, we could further condense things into a one-liner like so:
 
 {% highlight bash %}
 printf '\33]50;%s\007' "xft:DejaVu Sans Mono-$1"; tmux -2 attach-session -t `tmux -2 list-sessions | awk '{if ($11 == ""){str = $1; sub(/:/,"",str); print str}}'`
