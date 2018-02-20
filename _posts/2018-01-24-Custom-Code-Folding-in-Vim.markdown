@@ -39,7 +39,10 @@ To produce an automatic fold for this style of indentation we first have to unde
 
 For example to fold from an open bracket to a closing one the key sequence would be `zf%`, and we can also open folds using `zo`. The results of using these key sequences to fold brackets is shown below.
 
-![Markdown Gif][1]
+<p align="center">
+<img src="/assets/gifs/manualFolding.gif">
+</p>
+
 
 Through Vim's command mode we can run any set of keystrokes using the [normal!](http://learnvimscriptthehardway.stevelosh.com/chapters/29.html#avoiding-mappings) keyword (note that we can type `:help :<command>` into Vim to get the details of any of its functions). Now if we place the cursor over an open bracket and type `:normal! zf%zo` Vim will create a fold to the corresponding closed bracketi, and then open it. 
 
@@ -79,7 +82,7 @@ To elaborate a little on the regex itself:
 ```
 
 <p align="center">
-<img src="/assets/gifs/autoFolding.gif" width="400" height="261">
+<img src="/assets/gifs/autoFolding.gif">
 </p>
 
 
@@ -96,7 +99,7 @@ In the same way we derived a method to fold Allman style brackets, we can fold a
 
 ## References 
 
-http://learnvimscriptthehardway.stevelosh.com/chapters/29.html#avoiding-mappings
+<http://learnvimscriptthehardway.stevelosh.com/chapters/29.html#avoiding-mappings>
 
 [1]: /assets/gifs/manualFolding.gif
 [2]: /assets/gifs/autoFolding.gif
