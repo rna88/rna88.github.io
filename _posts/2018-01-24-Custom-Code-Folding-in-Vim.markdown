@@ -91,7 +91,7 @@ In the same way we derived a method to fold Allman style brackets, we can fold a
 :%g/.*{$/ normal! $zf% zo
 ```
 <p align="center">
-<img src="/assets/gifs/JautoFolding.gif" width="400" height="261">
+<img src="/assets/gifs/JautoFolding.gif">
 </p>
 
 ## References 
