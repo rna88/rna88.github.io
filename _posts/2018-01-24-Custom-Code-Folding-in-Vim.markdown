@@ -78,7 +78,9 @@ To elaborate a little on the regex itself:
 :command Refold %g/^[ \t]*{/ normal! zf% zo  
 ```
 
-![Markdown Gif][2]
+<p align="center">
+<img src="/assets/gifs/autoFolding.gif" width="400" height="261">
+</p>
 
 
 ## Folding Java style Brackets
@@ -89,7 +91,7 @@ In the same way we derived a method to fold Allman style brackets, we can fold a
 :%g/.*{$/ normal! $zf% zo
 ```
 <p align="center">
-<img src=[3] width="400" height="261">
+<img src="/assets/gifs/JautoFolding.gif" width="400" height="261">
 </p>
 
 ## References 
