@@ -66,7 +66,7 @@ Where,
 `%` The range over which the regex is applied, in this case the entire file.  
 `g` Tells Vim to apply the regex globally across the range.  
 `/^[ \t]*{/` The regex itself, contained within forward slashes.  
-`normal! zf%zo` The command to run.  
+`normal! zf%zo` The command to run: creates a fold to a bracket, then opens it. 
 
 To elaborate a little on the regex itself:  
 
@@ -80,6 +80,8 @@ To elaborate a little on the regex itself:
 ```
 :command Refold %g/^[ \t]*{/ normal! zf% zo  
 ```
+
+We can now create folds in any file in vim by typing `:Refold` and activate them by using the `zM` shortcut as shown:
 
 <p align="center">
 <img src="/assets/gifs/autoFolding.gif">
