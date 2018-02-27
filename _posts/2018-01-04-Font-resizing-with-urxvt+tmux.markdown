@@ -27,7 +27,7 @@ printf '\33]50;%s\007' "xft:DejaVu Sans Mono-12"
 
 Entering this sequence into a urxvt terminal will change the font to "DejaVu Sans Mono" and size it to 12.  
 
-However if we are in a tmux session then using these sequences directly won't work. We would first need to detach from tmux, enter the escape sequence, and then reattach the session. While detaching must be done with the <prefix>+d shortcut in tmux, executing the correct escape sequence and reattaching can be done more conveniently in a bash script, for example:
+However if we are in a tmux session then using these sequences directly won't work. We would first need to detach from tmux, enter the escape sequence, and then reattach the session. While detaching must be done with the <tmux prefix>+d shortcut, executing the correct escape sequence and reattaching can be done more conveniently in a bash script, for example:
 
 {% highlight bash %}
   1 #!/bin/bash
