@@ -63,17 +63,18 @@ Where,
 
 Symbols | Meaning
 --- | --- 
-`%` | The range over which the regex is applied, in this case the entire file.  
-`g` | Tells Vim to apply the regex globally across the range.  
-`/^[ \t]*{/` | The regex itself, contained within forward slashes.  
-`normal! zf%zo` | Command to run: creates a fold to a bracket, then opens it. 
+`%` | The range over which the regex is applied, in this case the entire file  
+`g` | Tells Vim to apply the regex globally across the range  
+`/^[ \t]*{/` | The regex itself, contained within forward slashes  
+`normal! zf%zo` | Command to run: creates a fold to a bracket, then opens it 
 
 To elaborate a little on the regex itself:  
 
 Symbols | Meaning
-`^` | Start matching from the beginning of the line.  
-`[ \t]*` | Match any combination of spaces and tabs, 0 or more times.  
-`{` | The character we are after.  
+--- | ---
+`^` | Start matching from the beginning of the line  
+`[ \t]*` | Match any combination of spaces and tabs, 0 or more times  
+`{` | The character we are after  
 
 To make using the script more convenient, we can make a custom mapping to it by adding the following line to our Vim config:
 
