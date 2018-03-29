@@ -22,7 +22,7 @@ While Vim has built in support for folding based on various methods. neither of 
 
 ## Folding Allman Style Brackets
 
-Typically I use Allman style indentation for C++ projects, where every bracket is on a new line, seen below:
+Typically I use Allman style indentation for C++ projects, where every bracket is on a new line, seen below.
 
 ```cpp
 if ( true )
@@ -45,7 +45,7 @@ For example to fold from an open bracket to a closing one the key sequence would
 
 Through Vim's command mode we can automatically execute any set of keystrokes using the [normal!](http://learnvimscriptthehardway.stevelosh.com/chapters/29.html#avoiding-mappings) keyword (for more details on this command type `:help :normal` into Vim). Now if we place the cursor over an open bracket, type `:normal! zf%zo` and hit return, Vim will execute the key sequence `zf%zo` which will create a fold to the corresponding closed bracket, and then open it. 
 
-To have fully automatic code folding we need to *globally* apply the previous set of commands across every open bracket that is on its own line. Vim allows us to use regular expression pattern matching for this task; we can try typing `:help :global` to view the syntax details, shown below:
+To have fully automatic code folding we need to *globally* apply the previous set of commands across every open bracket that is on its own line. Vim allows us to use regular expression pattern matching for this task; we can try typing `:help :global` to view the syntax details, shown below.
 
 ```vim
 :[range]g[lobal]/{pattern}/[cmd]
@@ -53,7 +53,7 @@ To have fully automatic code folding we need to *globally* apply the previous se
                         lines within [range] where {pattern} matches.
 ```
 
-Putting the parts together we end up with our final command:
+Putting the parts together we end up with our final command.
 
 ```
 :%g/^[ \t]*{/ normal! zf%zo
@@ -61,7 +61,7 @@ Putting the parts together we end up with our final command:
 
 Where,
 
-Symbols | Meaning
+Script | Explanation
 --- | --- 
 `%` | The range over which the regex is applied, in this case the entire file  
 `g` | Tells Vim to apply the regex globally across the range  
@@ -70,7 +70,7 @@ Symbols | Meaning
 
 To elaborate a little on the regex itself:  
 
-Symbols | Meaning
+Script | Explanation
 --- | ---
 `^` | Start matching from the beginning of the line  
 `[ \t]*` | Match any combination of spaces and tabs, 0 or more times  
