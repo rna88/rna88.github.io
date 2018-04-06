@@ -109,7 +109,7 @@ While it's possible to use screen/tmux sessions as a solution, if you just want 
 
 For some more information on some of the topics outlined in this article, you can check the following:
 
-<http://pubs.opengroup.org/onlinepubs/9699919799/functions/setsid.html>
-<https://askubuntu.com/questions/611968/differences-between-command-disown-and-nohup-command-disown>
-<https://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and#148698>
-<http://www.enderunix.org/docs/eng/daemon.php>
+<http://pubs.opengroup.org/onlinepubs/9699919799/functions/setsid.html>  
+<https://askubuntu.com/questions/611968/differences-between-command-disown-and-nohup-command-disown>  
+<https://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and#148698>  
+<http://www.enderunix.org/docs/eng/daemon.php>  
