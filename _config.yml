@@ -1,14 +1,14 @@
 # main text of home
-name: Chris Kringle
-bio: A Man who travels the world giving gifts
+name: Ramin Nazarali
+bio: A man who uses computers to make his life easier
 
 # twitter summary info
-description: A blog about technology and stuff related
+description: A blog/project site to detail some of the more useful tech related things I get up to.
 
 # if it's an external image, update below for true
 # better with square images
 external-image: false
-picture: assets/images/ck.jpg
+picture: assets/images/rnssB.png
 
 #url: https://koppl.in/indigo
 url: https://rna88.github.io/
@@ -35,16 +35,16 @@ disqus: mydisqus
 # google: mygoogle
 # instagram: myinstagram
 # pinterest: mypinterest
-# linkedin: mylinkedin
+linkedin: https://www.linkedin.com/in/raminnazarali/
 #youtube: myyoutube
 #spotify: myspotify
-github: mygithub
+github: https://github.com/rna88
 #stackoverflow: 7044681/mystackoverflow
 #quora: userquora
 #reddit: username
 #medium: medium
 #vimeo: myvimeo
-email: myemail@gmail.com
+email: raminnazarali@gmail.com
 
 authors:
     johndoe:
@@ -63,7 +63,7 @@ authors:
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
 # normal = 560px / large = 810px
-width: normal
+width: large
 
 # if you don't need pagination, comment the *paginate* configs below
 # paginate: 5
@@ -77,7 +77,7 @@ about: false
 blog: true
 
 # do you want to show the "read time" of the posts?
-read-time: true
+read-time: false
 
 # do you want to show the "tags" inside the posts?
 show-tags: true
@@ -86,7 +86,7 @@ show-tags: true
 related: true
 
 # show next & prev links in blog post?
-blog-nav-links: false
+blog-nav-links: true
 
 # show author block at the end of a post ?
 show-author: true

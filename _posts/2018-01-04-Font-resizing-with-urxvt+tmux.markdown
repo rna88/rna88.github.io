@@ -1,5 +1,5 @@
 ---
-title"Font resizing with urxvt+tmux"
+title: "Font resizing with urxvt+tmux"
 layout: post
 date: 2018-01-04 00:00
 image: /assets/images/markdown.jpg
@@ -27,29 +27,29 @@ printf '\33]50;%s\007' "xft:DejaVu Sans Mono-12"
 
 Entering this sequence into a urxvt terminal will change the font to "DejaVu Sans Mono" and size it to 12.  
 
-However if we are in a tmux session then using these sequences directly won't work. We would first need to detach from tmux, enter the escape sequence, and then reattach the session. While detaching must be done with the <prefix>+d shortcut in tmux, executing the correct escape sequence and reattaching can be done more conveniently in a bash script, for example:
+However if we are in a tmux session then using these sequences directly won't work. We would first need to detach from tmux, enter the escape sequence, and then reattach the session. While detaching must be done with the <tmux prefix>+d shortcut, executing the correct escape sequence and reattaching can be done more conveniently in a bash script, for example:
 
 {% highlight bash %}
-#!/bin/bash
-printf '\33]50;%s\007' "xft:DejaVu Sans Mono-$1"
-
-session=`
-tmux -2 list-sessions |\
-awk '
-BEGIN{}
-{
-  if ($11 == "")
-    {
-      print $1
-    }
-}
-END{}
-' | sed 's/://'
-`
-tmux -2 attach-session -t $session
+  1 #!/bin/bash
+  2 printf '\33]50;%s\007' "xft:DejaVu Sans Mono-$1"
+  3 
+  4 session=`
+  5 tmux -2 list-sessions |\
+  6 awk '
+  7 BEGIN{}
+  8 {
+  9   if ($11 == "")
+ 10     {
+ 11       print $1
+ 12     }
+ 13 }
+ 14 END{}
+ 15 ' | sed 's/://'
+ 16 `
+ 17 tmux -2 attach-session -t $session
 {% endhighlight %}
 
-The first part of the script just executes the escape sequence to resize the font using a value given as an argument to the script. The second part attempts to find the detached tmux session by looking at the last column in the list-sessions ouput, shown below. 
+The first part of the script at line 2 just executes the escape sequence to resize the font using a value given as an argument to the script. The second part starting from line 4 attempts to find our detached tmux session by examining the list-sessions ouput, shown below. 
 
 {% highlight bash %}
 > tmux -2 list-sessions
@@ -58,13 +58,33 @@ The first part of the script just executes the escape sequence to resize the fon
 2: 1 windows (created Sun Jan  3 16:47:46 2018) [202x31]
 {% endhighlight %}
 
-The session we have detached from has no "(attached)" column, so we know the session ID in the first column is 2 (of course if we have multiple detached sessions this method might not return the correct value, but this isn't an issue for my workflow). The sed invocation just removes the semicolon after the retrieved session ID.
+The first column of output lists the tmux session ID, and the last column whether the tmux session is currently attached. The script uses "awk" to check whether the last column is empty, and if so passes the first column to *sed*, where the colon at the end of the session ID is removed. Passing the ID to the attach-session command completes the script.
 
-To use the script we just make an alias to it within our shell and invoke it with the desired font size as an argument.
+To use the script we just make an alias to it within our shell and invoke it with the desired font size as an argument after detaching from tmux.
 
-## Improvements
+## Final Improvements
 
-The script as shown above is a bit verbose for what it does, and also uses "sed" when it would be more efficient to remove the pipe and use the "sub" function availabe within "awk". The whole script could be condensed into one line like so:
+While the script is pretty small and works fine as is, it doesn't hurt to optimize it if we can. The main inefficiency with the previous implementation lies with our usage of *sed*, as it introduces a needless pipe operation. Awk itself has the ability to handle regular expression based search-and-replace operations through the "sub" function. Making use of this function, removing the BEGIN and END sections, and removing the explicit "sessions" variable we get the following:
+
+
+{% highlight bash %}
+  1 #!/bin/bash
+  2 printf '\33]50;%s\007' "xft:DejaVu Sans Mono-$1"
+  3 
+  4 tmux -2 attach-session -t `
+  5 tmux -2 list-sessions |\
+  6 awk '
+  7 {
+  8   if ($11 == ""){
+  9     str = $1
+ 10     sub(/:/,"",str)
+ 11     print str
+ 12   }
+ 13 }
+ 14 ' `   
+{% endhighlight %}
+
+If we wanted to, we could further condense things into a one-liner like so:
 
 {% highlight bash %}
 printf '\33]50;%s\007' "xft:DejaVu Sans Mono-$1"; tmux -2 attach-session -t `tmux -2 list-sessions | awk '{if ($11 == ""){str = $1; sub(/:/,"",str); print str}}'`
